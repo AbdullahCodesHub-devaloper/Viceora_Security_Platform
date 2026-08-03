@@ -28,7 +28,6 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    background-color: #eff4ff;
 }
 
 *::before,
@@ -44,7 +43,7 @@ html{
 
 body{
     font-family:"Inter",sans-serif;
-    background:var(--background);
+    background:#eff4ff;
     color:var(--text);
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -70,19 +69,13 @@ img{
 ul{
     list-style:none;
 }
-main{
-    padding-top:80px;
-}
+
 .navbar{
-    position:fixed;
-    top:0;
-    left:0;
+    position:relative;
     width:100%;
     height:var(--navbar-height);
-    z-index:999;
     transition:var(--transition);
 }
-
 .navbar.scrolled{
     background:rgba(255,255,255,.78);
     backdrop-filter:blur(18px);
@@ -107,7 +100,7 @@ main{
 .brand{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     flex-shrink:0;
     transition:var(--transition);
 }
@@ -168,25 +161,21 @@ main{
 .navigation ul{
     display:flex;
     align-items:center;
-    gap:34px;
+    gap:30px;
 }
 
 .navigation li{
     position:relative;
+    gap:16px;
 }
 
 .navigation a{
     position:relative;
-
-    font-size:.89rem;
-
+    font-size:1rem;
     font-weight:500;
-
     color:var(--text);
-
     transition:var(--transition);
-
-    padding:8px 2px;
+    padding:8px 22px;
 }
 
 .navigation a:hover{
@@ -234,7 +223,7 @@ main{
 
     align-items:center;
 
-    gap:8px;
+    gap:10px;
 
     flex-shrink:0;
 }
@@ -569,3 +558,6 @@ main{
     max-width:1600px;
     padding:0 18px;
 }
+
+
+
