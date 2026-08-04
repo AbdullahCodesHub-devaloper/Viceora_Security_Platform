@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viceora | Lead Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+/* ==========================================================================
+   FIXED PAGE BACKGROUND & TYPOGRAPHY STYLES
+   ========================================================================== */
+
+/* Fix Page Background (Ensures dark theme everywhere) */
+body {
+  background-color: #0a0d14 !important;
+  color: #f1f5f9;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Center Container for Page */
+.dev-wrapper {
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Glitch Title (DEVELOPER PROFILE) */
+.glitch-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glitch-title:hover {
+  color: #00f2fe;
+  text-shadow: 0 0 25px #00f2fe, 0 0 50px #7f00ff;
+}
+
+/* Subtitle styling */
+.interactive-sub {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-family: monospace;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.interactive-sub:hover {
+  color: #ffffff;
+  letter-spacing: 3px;
+}
+
+/* Inside the Card Text Tweaks */
+.profile-card {
+  text-align: left; /* Keeps inside text readable */
+  background: #111827;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 242, 254, 0.15);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid #00f2fe;
+  border-radius: 50px;
+  color: #00f2fe;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+}
+
+.dev-name {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.dev-title {
+  color: #38bdf8;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: monospace;
+  margin-bottom: 1.25rem;
+}
+
+.dev-description {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.email-box {
+  background: #0b1120;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.email-box:hover {
+  border-color: #00f2fe;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+.email-address {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00f2fe;
+}
+
+.click-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fbbf24;
+  letter-spacing: 1px;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Viceora</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Developer Showcase -->
+  <main class="container dev-wrapper">
+    
+    <h1 class="glitch-title">DEVELOPER PROFILE</h1>
+    <p class="interactive-sub">// HOVER OVER CARDS & CLICK EMAIL TO COPY</p>
+
+    <div class="profile-card">
+      <span class="badge">LEAD ARCHITECT & DEVELOPER</span>
+      <h2 class="dev-name">ABDULLAH</h2>
+      <p class="dev-title">Full-Stack Web Developer & AI System Architect</p>
+      
+      <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+        Building Viceora with modern web aesthetics, scalable frontend components, and lightweight artificial intelligence integrations.
+      </p>
+
+      <!-- Interactive Click-to-Copy Email -->
+      <div class="email-box" onclick="copyEmail('abdullahgamer1608953@gmail.com')">
+        <span class="email-address">abdullahgamer1608953@gmail.com</span>
+        <span class="click-tag" id="copyStatus">⚡ CLICK TO COPY EMAIL</span>
+      </div>
+    </div>
+
+    
+  </main>
+
+  <script>
+    // Copy Email to Clipboard Function with Animated Response
+    function copyEmail(email) {
+      navigator.clipboard.writeText(email);
+      const status = document.getElementById('copyStatus');
+      
+      status.textContent = "✓ COPIED TO CLIPBOARD!";
+      status.style.color = "var(--primary)";
+
+      setTimeout(() => {
+        status.textContent = "⚡ CLICK TO COPY EMAIL";
+        status.style.color = "var(--text-dim)";
+      }, 2500);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viceora | Dashboard</title>
+  <link rel="stylesheet" href="landing_style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Viceora</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-menu">
+        <div class="sidebar-item active">Overview</div>
+        <div class="sidebar-item">API Keys</div>
+        <div class="sidebar-item">Model Logs</div>
+        <div class="sidebar-item">Settings</div>
+      </div>
+    </aside>
+
+    <main>
+      <h2 style="margin-bottom: 1.5rem;">System Overview</h2>
+      <div class="grid-3" style="margin-bottom: 2rem;">
+        <div class="card">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Total Requests</span>
+          <div class="metric-value">1,284,900</div>
+          <span style="color: var(--primary); font-size: 0.85rem;">+14% this week</span>
+        </div>
+        <div class="card">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Average Latency</span>
+          <div class="metric-value">42ms</div>
+          <span style="color: var(--primary); font-size: 0.85rem;">Optimal state</span>
+        </div>
+        <div class="card">
+          <span style="color: var(--text-muted); font-size: 0.85rem;">Active Models</span>
+          <div class="metric-value">8 / 10</div>
+          <span style="color: var(--text-muted); font-size: 0.85rem;">2 instances idle</span>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

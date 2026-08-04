@@ -373,14 +373,14 @@ ul{
     top:-40px;
     right:-40px;
 
-    background:#00c6ff;
+    background:#095a70;
     opacity:.18;
     filter:blur(80px);
 }
 
 .feature-card:hover{
     transform:translateY(-12px);
-    border-color:#00c6ff;
+    border: 1px solid #0d6dbd;
     box-shadow:0 22px 55px rgba(0,198,255,.25);
 }
 
