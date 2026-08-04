@@ -106,7 +106,6 @@ body::before {
   font-weight: 800;
   letter-spacing: -0.5px;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -127,7 +126,7 @@ body::before {
   color: var(--primary);
 }
 
-/* --- 5. UI Components (Buttons & Cards) --- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -178,9 +177,6 @@ body::before {
   background: var(--bg-card-hover);
 }
 
-/* --- 6. Page Specific Sections --- */
-
-/* Hero Section (Home Page) */
 .hero {
   padding: 8rem 0 5rem;
   text-align: center;
@@ -195,7 +191,6 @@ body::before {
 
 .gradient-text {
   background: linear-gradient(135deg, var(--primary), #9b51e0);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -206,7 +201,7 @@ body::before {
   margin: 0 auto 2.5rem;
 }
 
-/* Dashboard UI */
+
 .dashboard-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -249,7 +244,6 @@ body::before {
   color: var(--text-main);
 }
 
-/* Form Styles (Contact Page) */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -280,7 +274,7 @@ body::before {
   box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
-/* Footer */
+
 .footer {
   margin-top: auto;
   border-top: 1px solid var(--border-color);
@@ -290,7 +284,7 @@ body::before {
   font-size: 0.9rem;
 }
 
-/* --- 7. Responsive Design --- */
+
 @media (max-width: 900px) {
   .hero-title { font-size: 2.5rem; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
