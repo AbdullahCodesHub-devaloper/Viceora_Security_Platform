@@ -68,7 +68,7 @@ ul{
     list-style:none;
 }
 
-/* ================= NAVBAR ================= */
+
 
 .navbar{
     position:sticky;
@@ -84,9 +84,6 @@ ul{
     transition:var(--transition);
 }
 
-.navbar.scrolled{
-    box-shadow:var(--shadow-sm);
-}
 
 .nav-container{
     width:100%;
@@ -540,9 +537,6 @@ ul{
 
 
 
-/* ===========================
-   HERO BUTTONS
-=========================== */
 
 .hero-actions{
     display:flex;
@@ -841,9 +835,7 @@ ul{
     font-size:14px;
 }
 
-/* ===========================
-   RESPONSIVE FOOTER
-=========================== */
+
 
 @media (max-width:900px){
 
@@ -871,4 +863,29 @@ ul{
         gap:10px;
         text-align:center;
     }
+}
+
+
+
+
+
+.navbar-scrolled{
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 35px rgba(0,0,0,.12);
+}
+
+.navigation.navigation-open{
+    display:flex;
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform:rotate(-45deg) translateY(-8px);
 }
