@@ -278,7 +278,10 @@ ul{
     overflow:hidden;
 
     position:relative;
-    padding: 120px 20px 80px;
+    .hero{
+    padding: 120px 0 80px;
+}
+
 }
 
 
