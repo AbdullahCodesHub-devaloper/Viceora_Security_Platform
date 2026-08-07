@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viceora | AI Security & Vision Intelligence</title>
+<style>
+
+:root {
+  --bg-dark: #0a0d14;
+  --bg-card: #111827;
+  --bg-card-hover: #1f293d;
+  
+  --primary: #00f2fe;
+  --primary-glow: rgba(0, 242, 254, 0.2);
+  --accent-alert: #ff4757;
+  
+  --text-primary: #ffffff;
+  --text-muted: #94a3b8;
+  --text-secondary: #cbd5e1;
+  
+  --border-color: rgba(255, 255, 255, 0.12);
+  --radius-lg: 20px;
+  --radius-md: 12px;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-hero {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 1rem 0;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00f2fe, #38bdf8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-lead {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 50px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 1.5px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  text-align: left;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px var(--primary-glow);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.card-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.specs-banner {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spec-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  font-family: monospace;
+}
+
+.spec-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .specs-banner { flex-direction: column; gap: 1.5rem; }
+  .page-title { font-size: 2.2rem; }
+}
+
+/* ==========================================================================
+   VICEORA SECURITY NAVBAR STYLES (FIXED LOGO)
+   ========================================================================== */
+
+.navbar {
+  width: 100%;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 13, 20, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #00f2fe; /* Fallback color */
+  background: linear-gradient(135deg, #00f2fe, #38bdf8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  color: #00f2fe;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+</style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Viceora Security</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="landing_dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="landing_about.html" class="nav-link active">About</a></li>
+        <li><a href="landing_contact.html" class="nav-link">Contact</a></li>
+        <li><a href="landing_settings.html" class="nav-link">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <section class="about-hero">
+      <span class="badge">NEXT-GEN AI SURVEILLANCE</span>
+      <h1 class="page-title">Autonomous <span class="gradient-text">Facial Recognition</span> & Intruder Security</h1>
+      <p class="about-lead">
+        Viceora turns standard CCTV and webcam feeds into intelligent real-time security nodes. Our neural network continuously scans camera streams, identifies authorized personnel, and instantly flags unauthorized individuals with precise timestamp and location telemetry.
+      </p>
+
+      <!-- System Architecture Grid -->
+      <div class="grid-2" style="margin-top: 3rem;">
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3>Real-Time Face Detection</h3>
+          <p class="card-text">
+            Runs high-speed face detection loops directly against webcam and IP camera feeds, matching facial encodings against known database profiles in milliseconds.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚠️</div>
+          <h3>Intruder Alert & Snapshot</h3>
+          <p class="card-text">
+            When an unknown person is detected, the system immediately captures an automatic high-resolution snapshot (SS) and triggers an instant alert notification.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Location & Time Tracking</h3>
+          <p class="card-text">
+            Every detection payload includes exact time-stamping and camera zone location data, giving security teams precise situational awareness.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Automated Threat Response</h3>
+          <p class="card-text">
+            Minimizes human monitoring error by instantly displaying visual warnings, logging event history, and transmitting alerts directly to your dashboard.
+          </p>
+        </div>
+      </div>
+
+      <!-- Core Specs Summary -->
+      <div class="specs-banner">
+        <div class="spec-item">
+          <span class="spec-number">&lt; 50ms</span>
+          <span class="spec-label">Detection Latency</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-number">24 / 7</span>
+          <span class="spec-label">Webcam & CCTV Processing</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-number">100%</span>
+          <span class="spec-label">Automated SS Logging</span>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ==============================
+  // 1. Reveal cards on scroll
+  // ==============================
+  const cards = document.querySelectorAll(
+    ".card, .specs-banner"
+  );
+
+  cards.forEach(card => {
+
+    card.style.opacity = "0";
+    card.style.transform = "translateY(25px)";
+    card.style.transition =
+      "opacity .6s ease, transform .6s ease";
+
+  });
+
+
+  const observer = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+
+          observer.unobserve(entry.target);
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+
+  cards.forEach(card => observer.observe(card));
+
+
+  // ==============================
+  // 2. Feature card interaction
+  // ==============================
+  document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      card.animate(
+        [
+          { transform: "scale(1)" },
+          { transform: "scale(0.98)" },
+          { transform: "scale(1)" }
+        ],
+        {
+          duration: 220
+        }
+      );
+
+    });
+
+  });
+
+
+  // ==============================
+  // 3. Animate specification numbers
+  // ==============================
+  const specs = document.querySelectorAll(".spec-number");
+
+  specs.forEach(spec => {
+
+    const text = spec.textContent.trim();
+
+    // Don't alter text such as <50ms or 24/7
+    // Instead give it a subtle entrance animation.
+    spec.animate(
+      [
+        {
+          opacity: 0,
+          transform: "translateY(10px)"
+        },
+        {
+          opacity: 1,
+          transform: "translateY(0)"
+        }
+      ],
+      {
+        duration: 700,
+        easing: "ease-out"
+      }
+    );
+
+  });
+
+});
+</script>
+</body>
+</html>
