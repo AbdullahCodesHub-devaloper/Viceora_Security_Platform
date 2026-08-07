@@ -51,5 +51,160 @@
       </div>
     </main>
   </div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ==============================
+  // 1. Animate dashboard numbers
+  // ==============================
+  const metrics = document.querySelectorAll(".metric-value");
+
+  metrics.forEach(metric => {
+    const original = metric.textContent.trim();
+
+    // Extract number from text
+    const number = parseFloat(original.replace(/,/g, ""));
+
+    if (isNaN(number)) return;
+
+    let current = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function animate(time) {
+      const progress = Math.min((time - startTime) / duration, 1);
+
+      // Smooth animation
+      const ease = 1 - Math.pow(1 - progress, 3);
+      current = number * ease;
+
+      if (original.includes("ms")) {
+        metric.textContent = Math.round(current) + "ms";
+      } 
+      else if (original.includes("/")) {
+        metric.textContent = original;
+      } 
+      else {
+        metric.textContent = Math.floor(current).toLocaleString();
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        metric.textContent = original;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  });
+
+
+  // ==============================
+  // 2. Interactive sidebar
+  // ==============================
+  const sidebarItems = document.querySelectorAll(".sidebar-item");
+
+  sidebarItems.forEach(item => {
+
+    item.style.cursor = "pointer";
+
+    item.addEventListener("click", () => {
+
+      sidebarItems.forEach(i => i.classList.remove("active"));
+
+      item.classList.add("active");
+
+      showDashboardMessage(
+        item.textContent.trim() + " selected"
+      );
+    });
+  });
+
+
+  // ==============================
+  // 3. Dashboard cards interaction
+  // ==============================
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      card.style.transform = "scale(0.98)";
+
+      setTimeout(() => {
+        card.style.transform = "";
+      }, 120);
+    });
+
+  });
+
+
+  // ==============================
+  // 4. Create notification
+  // ==============================
+  function showDashboardMessage(message) {
+
+    let notification = document.getElementById(
+      "dashboard-notification"
+    );
+
+    if (!notification) {
+
+      notification = document.createElement("div");
+
+      notification.id = "dashboard-notification";
+
+      notification.style.position = "fixed";
+      notification.style.bottom = "25px";
+      notification.style.right = "25px";
+      notification.style.padding = "14px 20px";
+      notification.style.background = "#111827";
+      notification.style.color = "#ffffff";
+      notification.style.border = "1px solid #00f2fe";
+      notification.style.borderRadius = "12px";
+      notification.style.boxShadow =
+        "0 10px 30px rgba(0,242,254,0.2)";
+      notification.style.zIndex = "9999";
+      notification.style.transition = "all .3s ease";
+
+      document.body.appendChild(notification);
+    }
+
+    notification.textContent = "✓ " + message;
+
+    notification.style.opacity = "1";
+    notification.style.transform = "translateY(0)";
+
+    clearTimeout(notification.timer);
+
+    notification.timer = setTimeout(() => {
+
+      notification.style.opacity = "0";
+      notification.style.transform = "translateY(15px)";
+
+    }, 2000);
+  }
+
+
+  // ==============================
+  // 5. Keyboard navigation
+  // ==============================
+  document.addEventListener("keydown", event => {
+
+    if (event.key >= "1" && event.key <= "4") {
+
+      const index = Number(event.key) - 1;
+
+      if (sidebarItems[index]) {
+        sidebarItems[index].click();
+      }
+
+    }
+
+  });
+
+});
+</script>
 </body>
 </html>

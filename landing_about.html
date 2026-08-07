@@ -296,5 +296,105 @@ body {
 
     </section>
   </main>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ==============================
+  // 1. Reveal cards on scroll
+  // ==============================
+  const cards = document.querySelectorAll(
+    ".card, .specs-banner"
+  );
+
+  cards.forEach(card => {
+
+    card.style.opacity = "0";
+    card.style.transform = "translateY(25px)";
+    card.style.transition =
+      "opacity .6s ease, transform .6s ease";
+
+  });
+
+
+  const observer = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+
+          observer.unobserve(entry.target);
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+
+  cards.forEach(card => observer.observe(card));
+
+
+  // ==============================
+  // 2. Feature card interaction
+  // ==============================
+  document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      card.animate(
+        [
+          { transform: "scale(1)" },
+          { transform: "scale(0.98)" },
+          { transform: "scale(1)" }
+        ],
+        {
+          duration: 220
+        }
+      );
+
+    });
+
+  });
+
+
+  // ==============================
+  // 3. Animate specification numbers
+  // ==============================
+  const specs = document.querySelectorAll(".spec-number");
+
+  specs.forEach(spec => {
+
+    const text = spec.textContent.trim();
+
+    // Don't alter text such as <50ms or 24/7
+    // Instead give it a subtle entrance animation.
+    spec.animate(
+      [
+        {
+          opacity: 0,
+          transform: "translateY(10px)"
+        },
+        {
+          opacity: 1,
+          transform: "translateY(0)"
+        }
+      ],
+      {
+        duration: 700,
+        easing: "ease-out"
+      }
+    );
+
+  });
+
+});
+</script>
 </body>
 </html>

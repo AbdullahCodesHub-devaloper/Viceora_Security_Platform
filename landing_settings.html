@@ -488,6 +488,154 @@
         toast.classList.remove('show');
       }, 3000);
     }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ==============================
+  // 1. Remember theme
+  // ==============================
+  const themeToggle =
+    document.getElementById("themeToggle");
+
+  const savedTheme =
+    localStorage.getItem("viceora-theme");
+
+  if (savedTheme === "light") {
+
+    document.body.classList.add("light-mode");
+
+    if (themeToggle) {
+      themeToggle.checked = true;
+    }
+
+  }
+
+
+  if (themeToggle) {
+
+    themeToggle.addEventListener("change", () => {
+
+      localStorage.setItem(
+        "viceora-theme",
+        themeToggle.checked ? "light" : "dark"
+      );
+
+    });
+
+  }
+
+
+  // ==============================
+  // 2. Remember accent color
+  // ==============================
+  const savedAccent =
+    localStorage.getItem("viceora-accent");
+
+  if (savedAccent) {
+
+    document.documentElement.style.setProperty(
+      "--primary",
+      savedAccent
+    );
+
+    document.documentElement.style.setProperty(
+      "--primary-glow",
+      savedAccent + "40"
+    );
+
+    document.querySelectorAll(".color-dot")
+      .forEach(dot => {
+
+        const color =
+          dot.style.backgroundColor;
+
+        dot.classList.toggle(
+          "active",
+          color === savedAccent ||
+          color === savedAccent.toLowerCase()
+        );
+
+      });
+
+  }
+
+
+  // ==============================
+  // 3. Save accent whenever changed
+  // ==============================
+  document.querySelectorAll(".color-dot")
+    .forEach(dot => {
+
+      dot.addEventListener("click", () => {
+
+        const color = dot.style.background;
+
+        if (color) {
+
+          localStorage.setItem(
+            "viceora-accent",
+            color
+          );
+
+        }
+
+      });
+
+    });
+
+
+  // ==============================
+  // 4. Animate settings cards
+  // ==============================
+  document.querySelectorAll(".settings-card")
+    .forEach((card, index) => {
+
+      card.style.opacity = "0";
+      card.style.transform = "translateY(20px)";
+
+      setTimeout(() => {
+
+        card.style.transition =
+          "opacity .5s ease, transform .5s ease";
+
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+
+      }, index * 120);
+
+    });
+
+
+  // ==============================
+  // 5. Keyboard shortcut
+  // Ctrl + Shift + L
+  // ==============================
+  document.addEventListener("keydown", event => {
+
+    if (
+      event.ctrlKey &&
+      event.shiftKey &&
+      event.key.toLowerCase() === "l"
+    ) {
+
+      if (themeToggle) {
+
+        themeToggle.checked =
+          !themeToggle.checked;
+
+        themeToggle.dispatchEvent(
+          new Event("change")
+        );
+
+      }
+
+    }
+
+  });
+
+});
+
   </script>
 </body>
 </html>
